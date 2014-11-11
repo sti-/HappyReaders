@@ -10,9 +10,9 @@ var express = require('express'),
 
 var app = express();
 
-app.configure('production', function() {
+//app.configure('production', function() {
     mongoose.connect('mongodb://'+process.env.MONGOLAB_URI+'/test');
-});
+//});
 
 app.use(express.static(__dirname + '/assets'));
 
