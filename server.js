@@ -8,9 +8,11 @@ var express = require('express'),
 //    process.env.MONGOHQ_URL ||
 //    'mongodb://localhost/test';
 
-mongoose.connect('mongodb://'+process.env.MONGOLAB_URI+'/test');
-
 var app = express();
+
+app.configure('production', function() {
+    mongoose.connect('mongodb://'+process.env.MONGOLAB_URI+'/test');
+});
 
 app.use(express.static(__dirname + '/assets'));
 
