@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $( "#datepicker" ).datepicker();
+        });
+    </script>
+</head>
+<body>
+<p>da</p>
+    <form action="/savemessage" method="post">
+        <ul>
+        <li><label for="companie">Companie</label>
+        <select name="companie" id="companie">
+            <option>Bookster</option>
+            <option>Vodafone</option>
+        </select>
+        </li>
+        <li><label for="user">User</label><input name="user" id="user"/></li>
+        <li><label for="mesaj">Mesaj</label><textarea name="mesaj" id="mesaj">Ce ne scriu Booksterii</textarea></li>
+        <li><label for="datepicker">Data:</label><input type="text" id="datepicker"/></li>
+        <li><input type="submit" value="Save"/></li>
+        </ul>
+     </form>
+</body>
+</html>

@@ -1,0 +1,18 @@
+form {
+    background-color: red;
+}
+
+ul li {
+    clear: both;
+    list-style-type: none;
+}
+
+label {
+    background-color: green;
+    display: block;
+    float: left;
+    width: 5em;
+    text-align: right;
+    margin-right: .5em;
+    color: white;
+}
