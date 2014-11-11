@@ -3,12 +3,12 @@ var express = require('express'),
     mongoose = require('mongoose'),
     Testimonial = require('./testimonial_model.js');
 
-var uristring =
-    process.env.MONGOLAB_URI ||
-    process.env.MONGOHQ_URL ||
-    'mongodb://localhost/test';
+//var uristring =
+//    process.env.MONGOLAB_URI ||
+//    process.env.MONGOHQ_URL ||
+//    'mongodb://localhost/test';
 
-mongoose.connect(uristring);
+mongoose.connect('mongodb://'+process.env.MONGOLAB_URI+'/test');
 
 var app = express();
 
