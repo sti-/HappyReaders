@@ -3,14 +3,13 @@ var express = require('express'),
     mongoose = require('mongoose'),
     Testimonial = require('./testimonial_model.js');
 
-//var uristring =
-//    process.env.MONGOLAB_URI ||
-//    process.env.MONGOHQ_URL ||
-//    'mongodb://localhost/test';
+var uristring =
+    process.env.MONGOLAB_URI ||
+    'mongodb://localhost/test';
 
 var app = express();
 
-mongoose.connect(process.env.MONGOLAB_URI);
+mongoose.connect(uristring);
 
 app.use(express.static(__dirname + '/assets'));
 
