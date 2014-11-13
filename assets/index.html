@@ -7,10 +7,12 @@
     <link rel="stylesheet" href="/css/index.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script src="/js/index.js"></script>
     <script>
         $(function() {
             $( "#datepicker" ).datepicker();
         });
+        showtestimonials();
     </script>
 </head>
 <body>
@@ -29,5 +31,11 @@
         <li><input type="submit" value="Save"/></li>
         </ul>
      </form>
+
+<input type="button"  onclick="shownext()"/>
+<p>Lista Testimoniale</p>
+<div id="raspuns" >
+
+</div>
 </body>
 </html>
