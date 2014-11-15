@@ -16,26 +16,36 @@
     </script>
 </head>
 <body>
-<a href="testimoniale.html">Lista testimoniale</a>
-    <form action="/savemessage" method="post">
+<div id="titlu"><p>Cele mai recente testimoniale</p></div>
+<div id="wrapper">
+    <div id="raspuns" >
+    <br/>
+    <input type="button"  onclick="showmore()" value="Show More"/>
+    </div>
+    <div id="addTestimtitle">
+    <p>Adauga un testmonial nou</p>
+    </div>
+    <div id="addTestim">
+    <form action="javascript:showsave();">
         <ul>
         <li><label for="companie">Companie</label>
         <select name="companie" id="companie">
-            <option>Bookster</option>
+            <option>Banca Transilvania</option>
+            <option>Brd</option>
+            <option>IBM</option>
+            <option>ING</option>
+            <option>Orange</option>
             <option>Vodafone</option>
         </select>
         </li>
         <li><label for="user">User</label><input name="user" id="user"/></li>
-        <li><label for="mesaj">Mesaj</label><textarea name="mesaj" id="mesaj">Ce ne scriu Booksterii</textarea></li>
-        <li><label for="datepicker">Data:</label><input type="text" id="datepicker"/></li>
-        <li><input type="submit" value="Save"/></li>
+        <li><label for="mesaj">Mesaj:</label><textarea name="mesaj" id="mesaj" placeholder="Mesajul de la Booksteri"></textarea></li>
+        <li><label for="datepicker">Data:</label><input type="text" name="datamesaj" id="datepicker"/></li>
+        <li><input type="checkbox" name="trimis" value="trimis" wrap="hard"/>Trimis</li>
+        <li><input id="saveTestimonial" type="submit" value="Save"/></li>
         </ul>
      </form>
-
-<input type="button"  onclick="shownext()"/>
-<p>Lista Testimoniale</p>
-<div id="raspuns" >
-
+    </div>
 </div>
 </body>
 </html>

@@ -1,18 +1,120 @@
-form {
-    background-color: red;
+body {
+    background-color: #f1f1f1;
+}
+
+#titlu {
+    width: 65%;
+    height: 50px;
+    padding-top: 1px;
+    background-color: #909090;
+    border: 1px solid #d9d9d9;
+    color: #fff;
+}
+
+#titlu p {
+    margin-left: 10px;
+}
+
+#wrapper {
+    overflow: hidden;
+    height: 100%;
+}
+
+#raspuns {
+    width: 65%;
+    background-color: #fff;
+    float: left;
+    margin-right: 3%;
+    border: 1px solid #d9d9d9;
+}
+
+#addTestim {
+    width: 30%;
+    float: left;
+    border: 1px solid #d9d9d9;
 }
 
 ul li {
     clear: both;
     list-style-type: none;
+    margin-bottom: 10px;
 }
 
 label {
-    background-color: green;
     display: block;
     float: left;
     width: 5em;
-    text-align: right;
+    text-align: left;
     margin-right: .5em;
-    color: white;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    z-index: 999999;
+    border-collapse: collapse;
+}
+
+td:first-child {
+    width: 15%;
+}
+
+td:nth-child(2) {
+    width: 15%;
+}
+
+td:nth-child(3) {
+    width: 50%;
+    white-space: pre-line;
+}
+
+.allmesaj {
+    max-height: 100px;
+    overflow: hidden;
+}
+
+.showallmesaj {
+    max-height: none;
+    overflow: visible;
+}
+
+td:nth-child(4) {
+    width: 10%;
+}
+
+td:nth-child(5) {
+    width: 10%;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+td {
+    height: 100%;
+    padding: 15px 10px;
+    word-wrap: break-word;
+    border: 1px solid black;
+}
+
+#mesaj {
+    width: 95%;
+    height: 100px;
+}
+
+#addTestimtitle {
+    background-color: lightgreen;
+    width: 30%;
+    float: left;
+    border: 1px solid #d9d9d9;
+}
+
+#addTestimtitle p {
+margin-left: 5px;
+}
+
+#saveTestimonial {
+    width: 100px;
+    background-color: lightgreen;
+    border: 1px solid green;
 }
