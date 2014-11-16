@@ -38,6 +38,9 @@ app.post('/update', function(req, res) {
         if (err) throw err;
         var start = Number(req.body.randuri);
         var end = start + Number(req.body.cate);
+        console.log(testimoniale.length);
+        end = Math.min(end,testimoniale.length);
+        console.log(end);
         for (i=start; i<end; i++) {
             tabel += '<tr><td>';
             tabel += testimoniale[i].companie;
