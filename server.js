@@ -38,9 +38,7 @@ app.post('/update', function(req, res) {
         if (err) throw err;
         var start = Number(req.body.randuri);
         var end = start + Number(req.body.cate);
-        console.log(testimoniale.length);
         end = Math.min(end,testimoniale.length);
-        console.log(end);
         for (i=start; i<end; i++) {
             tabel += '<tr><td>';
             tabel += testimoniale[i].companie;
@@ -49,7 +47,8 @@ app.post('/update', function(req, res) {
             tabel += '</td><td><div id="cristi" class="allmesaj">';
             tabel += testimoniale[i].mesaj;
             tabel += '</div></td><td>';
-            tabel += testimoniale[i].datamesaj;
+            var date = new Date(testimoniale[i].datamesaj);
+            tabel += date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear();
             tabel += '</td><td>';
             var trimis = testimoniale[i].trimis;
             if (trimis=="trimis") {
@@ -88,7 +87,8 @@ app.post('/updatemore', function(req, res) {
             tabel += '</td><td><div id="cristi" class="allmesaj">';
             tabel += testimoniale[i].mesaj;
             tabel += '</div></td><td>';
-            tabel += testimoniale[i].datamesaj;
+            var date = new Date(testimoniale[i].datamesaj);
+            tabel += date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear();
             tabel += '</td><td>';
             var trimis = testimoniale[i].trimis;
             if (trimis=="trimis") {
