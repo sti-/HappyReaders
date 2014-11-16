@@ -51,7 +51,6 @@ function showsave() {
                 } else {
                 cate = tableElem.rows.length - 1; }
             }
-            alert(cate);
             showtestimonials(cate);
          }
     })
