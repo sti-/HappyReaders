@@ -24,7 +24,7 @@ function showtestimonials(cate) {
         $("#myTable").remove();
 
         var tabel = '<table id="myTable">';
-        tabel += '<tr><th>Companie</th><th>User</th><th>Mesaj</th><th>Data</th><th></th></tr>';
+        tabel += '<tr><td>Companie</td><td>User</td><td>Mesaj</td><td>Data</td><td></td></tr>';
 
         tabel += createTableRows(data);
 
@@ -46,11 +46,20 @@ function showsave() {
             var cate = 3;
             var tableElem = document.getElementById("myTable");
             if (tableElem) {
-                cate = tableElem.rows.length - 1;
+                if (tableElem.rows.length < 4) {
+                cate = tableElem.rows.length;
+                } else {
+                cate = tableElem.rows.length - 1; }
             }
+            alert(cate);
             showtestimonials(cate);
          }
     })
+$("#companie").val(1);
+$("#user").val("");
+$("#mesaj").val("");
+$("#trimis").prop("checked", false);
+
 }
 
 function showmore() {
