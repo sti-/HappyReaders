@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="/css/listacompanii.css">
     <link rel="stylesheet" href="/css/index.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     <script src="/js/index.js"></script>
+    <script src="/js/listacompanii.js"></script>
     <script>
         $(function() {
             $( "#datepicker" ).datepicker();
@@ -18,6 +20,34 @@
 <body>
 <div id="titlu"><p>Cele mai recente testimoniale</p></div>
 <div id="wrapper">
+    <div id="captabel" >
+    <table>
+        <tr>
+            <td>
+    <dl class="dropdown">
+    <dt>
+        <a href="#">
+            <span class="hida">Companie</span>
+            <img src="img/sageatajos.png"/>
+            <p class="multiSel"></p>
+        </a>
+        <button id="filtruCompanii">Filter</button>
+    </dt>
+        <dd>
+            <div id="maincompanies" class="mutliSelect">
+
+            </div>
+        </dd>
+    </dl>
+            </td>
+            <td>User</td>
+            <td>Mesaj</td>
+            <td>Data</td>
+            <td></td>
+        </tr>
+    </table>
+    </div>
+
     <div id="raspuns" >
     <br/>
     <input type="button"  onclick="showmore()" value="Show More"/>
@@ -31,11 +61,16 @@
         <li><label for="companie">Companie</label>
         <select name="companie" id="companie">
             <option>Banca Transilvania</option>
+            <option>Bookster</option>
             <option>Brd</option>
+            <option>Holcim</option>
             <option>IBM</option>
             <option>ING</option>
+            <option>Libra Bank</option>
             <option>Orange</option>
             <option>Vodafone</option>
+            <option>Volksbank</option>
+            <option>Wolftheis</option>
         </select>
         </li>
         <li><label for="user">User</label><input name="user" id="user"/></li>

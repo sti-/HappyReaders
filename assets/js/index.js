@@ -17,19 +17,37 @@ function createTableRows(data) {
     return rows;
 }
 
-function showtestimonials(cate) {
+function createListaCompanii () {
+    $.post("createListaCompanii", function(data) {
+
+        var comptoappend =  '<ul id="companieslist">';
+        for (var i=0; i<data.length; i++) {
+
+        comptoappend +=  '<li>';
+        comptoappend +=  '<input type="checkbox" value="';
+        comptoappend +=  data[i];
+        comptoappend +=  '" />';
+        comptoappend +=  data[i];
+        comptoappend +=  '</li>';
+    }
+        comptoappend +=  ' </ul>';
+        $("#maincompanies").prepend(comptoappend);
+    });
+}
+
+function showtestimonials(filtrucompanii, cate) {
     if (typeof(cate) == "undefined") { cate = 3; }
-    $.post("update", {randuri: "0", cate: cate}, function (data) {
+    if (typeof(filtrucompanii) == "undefined") { filtrucompanii = ''; }
+    $.post("update", {randuri: "0", cate: cate, filtrucompanii: filtrucompanii}, function (data) {
 
         $("#myTable").remove();
 
+       // var tabel = createListaCompanii();
         var tabel = '<table id="myTable">';
-        tabel += '<tr><td>Companie</td><td>User</td><td>Mesaj</td><td>Data</td><td></td></tr>';
-
         tabel += createTableRows(data);
-
         tabel += "</table>";
         $("#raspuns").prepend(tabel);
+
         $("table").mouseover(function(e) {
             var event = $(e.target);
             if (event.is("div")) {
@@ -51,7 +69,18 @@ function showsave() {
                 } else {
                 cate = tableElem.rows.length - 1; }
             }
-            showtestimonials(cate);
+            var filtrucompanii = '';
+            if($('#companieslist input:checkbox:checked').length == 0) {
+
+            } else {
+                var companiichecked = $('#companieslist input:checkbox:checked').map(function () {
+                    return this.value;
+                }).get();
+                filtrucompanii = companiichecked;
+            }
+            showtestimonials(filtrucompanii,cate);
+            $("#companieslist").remove();
+            createListaCompanii();
          }
     })
 $("#companie").val(1);
@@ -63,7 +92,17 @@ $("#trimis").prop("checked", false);
 
 function showmore() {
     var x = document.getElementById("myTable").rows.length;
-    $.post("update", {randuri: x - 1, cate: "3"}, function (data) {
+    var filtrucompanii = '';
+    if($('#companieslist input:checkbox:checked').length == 0) {
+
+    } else {
+        var companiichecked = $('#companieslist input:checkbox:checked').map(function () {
+            return this.value;
+        }).get();
+        filtrucompanii = companiichecked;
+    }
+
+    $.post("update", {randuri: x - 1, cate: "3", filtrucompanii: filtrucompanii}, function (data) {
         $("#myTable").append(createTableRows(data));
     });
     $("html, body").animate({ scrollTop: $(document).height() }, "slow");

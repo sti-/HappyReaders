@@ -20,10 +20,10 @@ body {
     height: 100%;
 }
 
-#raspuns {
+#raspuns, #captabel {
+    float: left;
     width: 65%;
     background-color: #fff;
-    float: left;
     margin-right: 3%;
     border: 1px solid #d9d9d9;
 }
@@ -56,6 +56,14 @@ table {
 }
 
 td:first-child {
+    width: 15%;
+}
+
+td:first-child {
+    width: 15%;
+}
+
+td:nth-child(2) {
     width: 15%;
 }
 

@@ -32,13 +32,45 @@ app.post('/savemessage', function(req,res) {
 });
 
 app.post('/update', function(req, res) {
-    Testimonial.find().sort({datamesaj: -1}).exec(function (err, testimoniale) {
-        if (err) throw err;
-        var start = Number(req.body.randuri);
-        var end = start + Number(req.body.cate);
+    if (req.body.filtrucompanii == '') {
+        Testimonial.find().sort({datamesaj: -1}).exec(function (err, testimoniale) {
+            if (err) throw err;
+            var start = Number(req.body.randuri);
+            var end = start + Number(req.body.cate);
 
-        res.send(testimoniale.slice(start, end));
-    })
+            res.send(testimoniale.slice(start, end));
+        })
+    } else {
+        Testimonial.find({companie: {$in: req.body.filtrucompanii}}).sort({datamesaj: -1}).exec(function (err, testimoniale) {
+            if (err) throw err;
+            var start = Number(req.body.randuri);
+            var end = start + Number(req.body.cate);
+
+            res.send(testimoniale.slice(start, end));
+        })
+    }
+});
+
+app.post('/createListaCompanii', function(req,res) {
+    Testimonial.find().exec(function(err, testimoniale) {
+        if (err) throw err;
+        var companii = [];
+        testimoniale.forEach(function(testimonial) {
+            var ok = true;
+            var i = 0;
+            while (i < companii.length && ok) {
+            if (companii[i] == testimonial.companie) {
+                ok = false;
+            }
+            i++;
+            }
+            if (ok) {
+                companii.push(testimonial.companie);
+            }
+        });
+        companii.sort();
+        res.send(companii);
+     })
 });
 
 app.listen(process.env.PORT || 5000);
